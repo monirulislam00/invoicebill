@@ -65,6 +65,7 @@ dataArray = {
 };
 
 $.each(dataArray, function (index, data) {
+    /* --------------------- showing information at bottom --------------------- */
     if (data.input.val() != null) {
         data.output.text(data.input.val());
     }
@@ -79,3 +80,50 @@ if (dataArray.date.input.val() != null) {
 $(dataArray.date.input).on("change", function () {
     dataArray.date.output.text(dataArray.date.input.val());
 });
+
+/* -------------------------------------------------------------------------- */
+/*                              amounts gathering                             */
+/* -------------------------------------------------------------------------- */
+
+let amount1 = $("#product-1");
+let unit1 = $("#unit-1");
+let productUnit1 = $("#product-unit-1");
+let amount2 = $("#product-2");
+let unit2 = $("#unit-2");
+let productUnit2 = $("#product-unit-2");
+let amount3 = $("#product-3");
+let unit3 = $("#unit-3");
+let productUnit3 = $("#product-unit-3");
+let amount4 = $("#product-4");
+let unit4 = $("#unit-4");
+let productUnit4 = $("#product-unit-4");
+const totalPrice = $("#total-price");
+const amountArray = {
+    product1: { amount: amount1, unit: unit1 },
+    product2: { amount: amount2, unit: unit2 },
+    product3: { amount: amount3, unit: unit3 },
+    product4: { amount: amount4, unit: unit4 },
+};
+
+// $.each(amountArray, function (index, data) {
+$(".product").on("keyup", function () {
+    productUnit1.text(
+        amountArray.product1.amount.val() * amountArray.product1.unit.val()
+    );
+    productUnit2.text(
+        amountArray.product2.amount.val() * amountArray.product2.unit.val()
+    );
+    productUnit3.text(
+        amountArray.product3.amount.val() * amountArray.product3.unit.val()
+    );
+    productUnit4.text(
+        amountArray.product4.amount.val() * amountArray.product4.unit.val()
+    );
+    totalPrice.text(
+        parseInt(productUnit1.text()) +
+            parseInt(productUnit2.text()) +
+            parseInt(productUnit3.text()) +
+            parseInt(productUnit4.text())
+    );
+});
+// });
