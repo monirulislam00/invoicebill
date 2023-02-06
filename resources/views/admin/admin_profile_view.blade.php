@@ -7,7 +7,8 @@
         <div class="card">
             <h5 class="card-header">Admin Profile</h5>
             <div class="card-body">
-                <form>
+                <form method="POST" action="" enctype="multipart/form-data">
+                @csrf
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full name</label>
                         <input type="text" class="form-control" value="{{ $admindata->name}}">
