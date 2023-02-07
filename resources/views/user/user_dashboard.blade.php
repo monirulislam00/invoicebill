@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,4 +9,4 @@
 <body>
     <h1>User Dashboard</h1>
 </body>
-</html>
+</html> --}}
