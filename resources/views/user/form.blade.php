@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <form action="">
+    <form action="/" method="post">
         <table class="table table-bordered common-border">
             <thead class="text-center">
                 <td colspan="11">
@@ -35,8 +35,9 @@
                         <input type="text" class="form-control" name="supplier_name" id="supplier_name">
                     </td>
                     <td colspan="2" rowspan="6" style="min-width: 115px">
-                        <div id="qrcode">
-
+                        <div id="qrcode" class="d-flex justify-content-center">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=please generate qr code:"
+                                class="img-responsive">
                         </div>
                     </td>
                 </tr>
@@ -171,7 +172,12 @@
             <tr>
                 <th colspan="2">SUPPLIER</th>
                 <th colspan="6" class="text-center" id="supplier_value">0</th>
-                <td colspan="2" rowspan="6" style="min-width: 115px"></td>
+                <td colspan="2" rowspan="6" style="min-width: 115px">
+                    <div id="qrcode" class="d-flex justify-content-center">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=please generate qr code:"
+                            class="img-responsive">
+                    </div>
+                </td>
             </tr>
             <tr>
                 <th colspan="2">FACTORY</th>
@@ -217,13 +223,17 @@
             </tbody>
         </table>
         <div class="float-end">
-            <button onclick="generate()" class="btn btn-primary fw-bold m-3">Save Data</button>
+            <button id="save-invoice" class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black d-none">Save
+                Data</button>
+            <button onclick="generate()" type="button" class="btn btn-primary bg-primary">generate qr</button>
             <button class="btn btn-secondary fw-bold">Refresh Table</button>
         </div>
     </form>
 </div>
 <script>
-    function generate() {
+    function generate(e) {
+        // e.preventDefault();
+        $("#save-invoice").removeClass("d-none");
         var buyer_name = document.getElementById("buyer_name").value;
         var seller_name = document.getElementById("seller_name").value;
         var supplier_name = document.getElementById("supplier_name").value;
@@ -240,7 +250,7 @@
             "Pieces: " + pieces;
 
 
-        var ifr = `<iframe src="${url}" width="300" height="300">  </iframe>`;
+        var ifr = `<img src="${url}" class="img-responsive">  `;
 
         document.getElementById("qrcode").innerHTML = ifr;
 
