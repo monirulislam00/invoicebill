@@ -169,11 +169,11 @@
             <tr>
                 <th colspan="2">SUPPLIER</th>
                 <th colspan="6" class="text-center" id="supplier_value">0</th>
-                <<<<<<< HEAD <td colspan="2" rowspan="6" style="min-width: 115px">
-                    </td>
-                    =======
-                    <td colspan="2" rowspan="6" class="qr-code" style="min-width: 155px"></td>
-                    >>>>>>> main
+                <td colspan="2" rowspan="6" style="min-width: 115px">
+                </td>
+
+                <td colspan="2" rowspan="6" class="qr-code" style="min-width: 155px"></td>
+
             </tr>
             <tr>
                 <th colspan="2">FACTORY</th>
