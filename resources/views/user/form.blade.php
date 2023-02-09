@@ -34,7 +34,8 @@
                     <td colspan="6" class="text-center p-0 b-0">
                         <input type="text" class="form-control" name="supplier_name" id="supplier_name">
                     </td>
-                    <td colspan="2" rowspan="6" style="min-width: 115px"></td>
+                    <td colspan="2" rowspan="6" style="min-width: 115px">
+                    </td>
                 </tr>
                 <tr>
                     <th colspan="2">FACTORY</th>
@@ -213,7 +214,7 @@
             </tbody>
         </table>
         <div class="float-end">
-            <button class="btn btn-primary fw-bold m-3">Save Data</button>
+            <button class="btn btn-warning text-danger bg-black b-3 fw-bold m-3 ">Save Data</button>
             <button class="btn btn-secondary fw-bold">Refresh Table</button>
         </div>
     </form>
