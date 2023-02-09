@@ -125,5 +125,11 @@ $(".product").on("keyup", function () {
             parseInt(productUnit3.text()) +
             parseInt(productUnit4.text())
     );
+    $("#totalPriceInput").val(
+        parseInt(productUnit1.text()) +
+            parseInt(productUnit2.text()) +
+            parseInt(productUnit3.text()) +
+            parseInt(productUnit4.text())
+    );
 });
 // });

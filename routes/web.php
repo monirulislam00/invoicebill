@@ -4,8 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\Api\InvoiceController;
 use Illuminate\Support\Str;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::post("create-invoice", [InvoiceController::class, "store"]);
+    Route::post("/api/create-invoice", [InvoiceController::class, "store"])->name('invoice.store');
 });
 
 require __DIR__ . '/auth.php';
@@ -47,5 +48,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 });
 
 
-Route::get("/test", function () {
+Route::get('/test', function () {
+    return
+        str_pad(User::max("id") + 1, 1, 0, STR_PAD_LEFT);
 });

@@ -1,5 +1,6 @@
 <div class="table-responsive">
-    <form action="/" method="post">
+    <form action="/api/create-invoice" method="post" id="create-invoice">
+        @csrf
         <table class="table table-bordered common-border">
             <thead class="text-center">
                 <td colspan="11">
@@ -76,7 +77,10 @@
                     <td colspan="6" class="text-center p-0 b-0">
                         <input type="text" class="form-control" name="pieces" id="pieces">
                     </td>
-                    <td class="text-success fw-bold" colspan="3">0</td>
+                    <td class="text-success fw-bolder" colspan="3">
+                        <p class="invoice-number">0</p>
+                        <input type="hidden">
+                    </td>
                 </tr>
                 <tr>
                     <td style="border-bottom: 2px solid red" colspan="11"></td>
@@ -102,10 +106,10 @@
                     <td></td>
                     <th>1</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product"pattern="[0-9]{0}" id="product-1">
+                        <input type="text" class="form-control product" id="product-1">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="unit-1">
+                        <input type="text" class="form-control product" id="unit-1">
                     </th>
                     <th class="text-center" colspan="2" id="product-unit-1">
 
@@ -117,22 +121,23 @@
                     <td></td>
                     <th>2</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="product-2">
+                        <input type="text" class="form-control product" id="product-2">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="unit-2">
+                        <input type="text" class="form-control product" id="unit-2">
                     </th>
                     <th class="text-center" colspan="2" id="product-unit-2"></th>
                     <td colspan="3" rowspan="2" id="total-price"></td>
+                    <input type="hidden" name="totalPrice" id="totalPriceInput">
                 </tr>
                 <tr class="text-center">
                     <td></td>
                     <th>3</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="product-3">
+                        <input type="text" class="form-control product" id="product-3">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="unit-3">
+                        <input type="text" class="form-control product" id="unit-3">
                     </th>
                     <th class="text-center" colspan="2" id="product-unit-3"></th>
                 </tr>
@@ -140,10 +145,10 @@
                     <td></td>
                     <th>4</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="product-4">
+                        <input type="text" class="form-control product" id="product-4">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" pattern="[0-9]" id="unit-4">
+                        <input type="text" class="form-control product" id="unit-4">
                     </th>
                     <th class="text-center" colspan="2" id="product-unit-4"></th>
                     <td></td>

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string("total", 100);
             $table->string("pieces", 50);
             $table->string("qr_code");
+            $table->string("invoice_num", 50);
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
