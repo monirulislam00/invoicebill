@@ -7,27 +7,27 @@
         <div class="card">
             <h5 class="card-header">Admin Profile</h5>
             <div class="card-body">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{route("admin.profile.store")}}" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full name</label>
-                        <input type="text" class="form-control" value="{{ $admindata->name}}">
+                        <input type="text" name="name" class="form-control" value="{{ $admindata->name}}">
                     </div>
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" value="{{ $admindata->email}}">
+                        <input type="email" name="email" class="form-control" value="{{ $admindata->email}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputPassword1" class="form-label">New Password</label>
-                        <input type="password" class="form-control">
+                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" value="{{ $admindata->phone}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control">
+                        <label for="exampleInputEmail1" class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" value="{{ $admindata->address}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Chose image</label>
-                        <input type="file" class="form-control" id="image">
+                        <label class="form-label">Chose image</label>
+                        <input type="file" name="photo" class="form-control" id="image">
                     </div>
                     <div class="form-group mb-3">
                         <img  id="showImage" src="{{(!empty($admindata->photo)) ? url('upload/admin_image/'.$admindata->photo): url('upload/no_image.jpg')}}" height="110px">
