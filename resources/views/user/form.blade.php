@@ -35,7 +35,7 @@
                         <input type="text" class="form-control" name="supplier_name" id="supplier_name">
                     </td>
                     <td colspan="2" rowspan="6" style="min-width: 115px">
-                        <div id="qrcode" class="d-flex justify-content-center">
+                        <div id="qrcode1" class="d-flex justify-content-center qrcode">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=please generate qr code:"
                                 class="img-responsive">
                         </div>
@@ -173,7 +173,7 @@
                 <th colspan="2">SUPPLIER</th>
                 <th colspan="6" class="text-center" id="supplier_value">0</th>
                 <td colspan="2" rowspan="6" style="min-width: 115px">
-                    <div id="qrcode" class="d-flex justify-content-center">
+                    <div id="qrcode2" class="d-flex justify-content-center qrcode">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=please generate qr code:"
                             class="img-responsive">
                     </div>
@@ -233,7 +233,6 @@
 <script>
     function generate(e) {
         // e.preventDefault();
-        $("#save-invoice").removeClass("d-none");
         var buyer_name = document.getElementById("buyer_name").value;
         var seller_name = document.getElementById("seller_name").value;
         var supplier_name = document.getElementById("supplier_name").value;
@@ -250,9 +249,11 @@
             "Pieces: " + pieces;
 
 
-        var ifr = `<img src="${url}" class="img-responsive">  `;
+        var ifr = `<img src="${url}" class="img-responsive">`;
 
-        document.getElementById("qrcode").innerHTML = ifr;
+        document.getElementById("qrcode1").innerHTML = ifr;
+        document.getElementById("qrcode2").innerHTML = ifr;
+        $("#save-invoice").removeClass("d-none");
 
     };
 </script>
