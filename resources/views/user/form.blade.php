@@ -34,9 +34,11 @@
                     <td colspan="6" class="text-center p-0 b-0">
                         <input type="text" class="form-control" name="supplier_name" id="supplier_name">
                     </td>
+                    <td colspan="2" rowspan="6" style="min-width: 115px">
+                        <div id="qrcode">
 
-                    <td colspan="2" rowspan="6" class="qr-code" style="min-width: 155px"></td>
-
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <th colspan="2">FACTORY</th>
@@ -169,11 +171,7 @@
             <tr>
                 <th colspan="2">SUPPLIER</th>
                 <th colspan="6" class="text-center" id="supplier_value">0</th>
-                <td colspan="2" rowspan="6" style="min-width: 115px">
-                </td>
-
-                <td colspan="2" rowspan="6" class="qr-code" style="min-width: 155px"></td>
-
+                <td colspan="2" rowspan="6" style="min-width: 115px"></td>
             </tr>
             <tr>
                 <th colspan="2">FACTORY</th>
@@ -219,11 +217,32 @@
             </tbody>
         </table>
         <div class="float-end">
-            <<<<<<< HEAD <button class="btn btn-warning text-danger bg-black b-3 fw-bold m-3 ">Save Data</button>
-                =======
-                <button class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black">Save Data</button>
-                >>>>>>> main
-                <button class="btn btn-secondary fw-bold">Refresh Table</button>
+            <button onclick="generate()" class="btn btn-primary fw-bold m-3">Save Data</button>
+            <button class="btn btn-secondary fw-bold">Refresh Table</button>
         </div>
     </form>
 </div>
+<script>
+    function generate() {
+        var buyer_name = document.getElementById("buyer_name").value;
+        var seller_name = document.getElementById("seller_name").value;
+        var supplier_name = document.getElementById("supplier_name").value;
+        var factory_name = document.getElementById("factory_name").value;
+        var trademark = document.getElementById("trademark").value;
+        var date = document.getElementById("date").value;
+        var delivery_location = document.getElementById("delivery_location").value;
+        var types = document.getElementById("types").value;
+        var pieces = document.getElementById("pieces").value;
+
+        var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
+            "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
+            "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
+            "Pieces: " + pieces;
+
+
+        var ifr = `<iframe src="${url}" width="300" height="300">  </iframe>`;
+
+        document.getElementById("qrcode").innerHTML = ifr;
+
+    };
+</script>
