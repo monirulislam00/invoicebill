@@ -16,7 +16,8 @@
 
         <!-- DataTables -->
         <link href="{{asset('admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-
+        {{-- datatable 5 --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css"/>
         <!-- Responsive datatable examples -->
         <link href="{{asset('admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />  
 
@@ -115,8 +116,8 @@
         <script src="{{asset('admin/assets/libs/metismenu/metisMenu.min.js')}}"></script>
         <script src="{{asset('admin/assets/libs/simplebar/simplebar.min.js')}}"></script>
         <script src="{{asset('admin/assets/libs/node-waves/waves.min.js')}}"></script>
-
-        
+        {{-- datatable 5 --}}
+        <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
         <!-- apexcharts -->
         <script src="{{asset('admin/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
 
