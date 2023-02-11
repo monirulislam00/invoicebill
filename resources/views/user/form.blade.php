@@ -242,6 +242,7 @@
             <button id="save-invoice" class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black d-none">Save
                 Data</button>
             <button onclick="generate()" type="button" class="btn btn-primary bg-primary">generate qr</button>
+
             <button class="btn btn-secondary fw-bold">Refresh Table</button>
         </div>
     </form>
@@ -249,6 +250,7 @@
 <script>
     function generate(e) {
         // e.preventDefault();
+
         var buyer_name = document.getElementById("buyer_name").value;
         var seller_name = document.getElementById("seller_name").value;
         var supplier_name = document.getElementById("supplier_name").value;
@@ -258,7 +260,7 @@
         var delivery_location = document.getElementById("delivery_location").value;
         var types = document.getElementById("types").value;
         var pieces = document.getElementById("pieces").value;
-
+        
         var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
             "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
             "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
@@ -273,3 +275,4 @@
 
     };
 </script>
+

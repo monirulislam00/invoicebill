@@ -1,10 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-<script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-</script>
+
         <div class="container-fluid">
             <table id="example" class="display" style="width:100%">
                 <thead>
@@ -82,7 +78,11 @@
             </table>
         </div>
     <!-- End Page-content -->
-    
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 @endsection
 
    
