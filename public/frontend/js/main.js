@@ -107,29 +107,29 @@ const amountArray = {
 
 // $.each(amountArray, function (index, data) {
 $(".product").on("keyup", function () {
-    productUnit1.text(
+    productUnit1.val(
         amountArray.product1.amount.val() * amountArray.product1.unit.val()
     );
-    productUnit2.text(
+    productUnit2.val(
         amountArray.product2.amount.val() * amountArray.product2.unit.val()
     );
-    productUnit3.text(
+    productUnit3.val(
         amountArray.product3.amount.val() * amountArray.product3.unit.val()
     );
-    productUnit4.text(
+    productUnit4.val(
         amountArray.product4.amount.val() * amountArray.product4.unit.val()
     );
     totalPrice.text(
-        parseInt(productUnit1.text()) +
-            parseInt(productUnit2.text()) +
-            parseInt(productUnit3.text()) +
-            parseInt(productUnit4.text())
+        parseInt(productUnit1.val()) +
+            parseInt(productUnit2.val()) +
+            parseInt(productUnit3.val()) +
+            parseInt(productUnit4.val())
     );
     $("#totalPriceInput").val(
-        parseInt(productUnit1.text()) +
-            parseInt(productUnit2.text()) +
-            parseInt(productUnit3.text()) +
-            parseInt(productUnit4.text())
+        parseInt(productUnit1.val()) +
+            parseInt(productUnit2.val()) +
+            parseInt(productUnit3.val()) +
+            parseInt(productUnit4.val())
     );
 });
 // });

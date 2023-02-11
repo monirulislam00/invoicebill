@@ -16,7 +16,8 @@ $(document).ready(function () {
             success: function (response, data) {
                 console.log(response);
                 console.log(data);
-                alert("created new user");
+                alert("created new invoice");
+                $("#watch-pdf").attr("href", `/pdf/view/${response.data.id}`);
             },
             error: function (request, error) {
                 console.log(error);
