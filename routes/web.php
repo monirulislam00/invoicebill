@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("/api/create-invoice", [InvoiceController::class, "store"])->name('invoice.store');
+    Route::get("pdf/view/{id}", [InvoiceController::class, "watchPdf"])->name('pdf.view');
 });
 
 require __DIR__ . '/auth.php';

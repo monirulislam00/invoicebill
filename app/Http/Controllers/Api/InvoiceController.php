@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Invoice;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class InvoiceController extends Controller
@@ -43,6 +45,15 @@ class InvoiceController extends Controller
             $invoice->date = $request->date;
             $invoice->location = $request->delivery_location;
             $invoice->type = $request->types;
+            $invoice->pieces_one = $request->pieces_1;
+            $invoice->unit_one = $request->unit_1;
+            $invoice->sum_one = $request->product_unit_1;
+            $invoice->sum_two = $request->product_unit_2;
+            $invoice->sum_three = $request->product_unit_3;
+            $invoice->pieces_two = $request->pieces_2;
+            $invoice->unit_two = $request->unit_2;
+            $invoice->pieces_three = $request->pieces_3;
+            $invoice->unit_three = $request->unit_3;
             $invoice->pieces = $request->pieces;
             $invoice->total = $request->totalPrice;
             $invoice->qr_code = "Buyer name:" . $request->buyer_name .
@@ -70,5 +81,11 @@ class InvoiceController extends Controller
                 ], 400);
             }
         }
+    }
+    public function watchPdf($id)
+    {
+        $pdf = Pdf::loadView('pdf.invoice')->setPaper('b5', 'landscape');
+        return $pdf->stream();
+        return view("pdf.invoice");
     }
 }

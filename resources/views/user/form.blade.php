@@ -95,7 +95,7 @@
                 <tr class="text-center">
                     <td></td>
                     <th>NO</th>
-                    <th class="text-center" colspan="2">PRICING</th>
+                    <th class="text-center" colspan="2">PIECES</th>
                     <th class="text-center" colspan="2">UNIT PRICE</th>
                     <th class="text-center" colspan="2">TOTAL PRICE</th>
                     <td></td>
@@ -106,13 +106,14 @@
                     <td></td>
                     <th>1</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="product-1">
+                        <input type="text" class="form-control product" id="product-1" name="pieces_1">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="unit-1">
+                        <input type="text" class="form-control product" id="unit-1" name="unit_1">
                     </th>
-                    <th class="text-center" colspan="2" id="product-unit-1">
-
+                    <th class="text-center p-0 b-0" colspan="2">
+                        <input type="text" class="form-control product bg-light" id="product-unit-1"
+                            name="product_unit_1" readonly>
                     </th>
                     <td></td>
                     <td></td>
@@ -121,36 +122,46 @@
                     <td></td>
                     <th>2</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="product-2">
+                        <input type="text" class="form-control product" id="product-2" name="pieces_2">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="unit-2">
+                        <input type="text" class="form-control product" id="unit-2" name="unit_2">
                     </th>
-                    <th class="text-center" colspan="2" id="product-unit-2"></th>
-                    <td class="fw-bold py-4 text-xl" colspan="3" rowspan="2" id="total_price"></td>
+                    <th class="text-center p-0 b-0" colspan="2">
+                        <input type="text" class="form-control product bg-light" id="product-unit-2" readonly
+                            name="product_unit_2">
+                    </th>
+                    <td colspan="3" rowspan="2" id="total-price"></td>
+
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
                 </tr>
                 <tr class="text-center">
                     <td></td>
                     <th>3</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="product-3">
+                        <input type="text" class="form-control product" id="product-3" name="pieces_3">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="unit-3">
+                        <input type="text" class="form-control product" id="unit-3" name="unit_3">
                     </th>
-                    <th class="text-center" colspan="2" id="product-unit-3"></th>
+                    <th class="text-center p-0 b-0" colspan="2">
+                        <input type="text" class="form-control product bg-light" id="product-unit-3" readonly
+                            name="product_unit_3">
+                    </th>
                 </tr>
                 <tr class="text-center">
                     <td></td>
                     <th>4</th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="product-4">
+                        <input type="text" class="form-control product" id="product-4" name="pieces_4">
                     </th>
                     <th class="text-center p-0" colspan="2">
-                        <input type="text" class="form-control product" id="unit-4">
+                        <input type="text" class="form-control product" id="unit-4" name="unit_4">
                     </th>
-                    <th class="text-center" colspan="2" id="product-unit-4"></th>
+                    <th class="text-center p-0 b-0" colspan="2">
+                        <input type="text" class="form-control product bg-light" id="product-unit-4" disabled
+                            name="product_unit_4">
+                    </th>
                     <td></td>
                     <td></td>
                 </tr>
@@ -189,7 +200,7 @@
                 <th colspan="6" class="text-center" id="factory_value"></th>
             </tr>
             <tr>
-                <th colspan="2">TRANDEMARK</th>
+                <th colspan="2">TRADEMARK</th>
                 <th colspan="6" class="text-center" id="trademark_value"></th>
             </tr>
             <tr>
@@ -228,6 +239,7 @@
             </tbody>
         </table>
         <div class="float-end">
+            <a href="/pdf/view/3" class="btn" id="watch-pdf">watch pdf</a>
             <button id="save-invoice" class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black d-none">Save
                 Data</button>
             <button onclick="generate()" type="button" class="btn btn-primary bg-primary">generate qr</button>
