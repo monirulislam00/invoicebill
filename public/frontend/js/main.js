@@ -97,7 +97,7 @@ let productUnit3 = $("#product-unit-3");
 let amount4 = $("#product-4");
 let unit4 = $("#unit-4");
 let productUnit4 = $("#product-unit-4");
-const totalPrice = $("#total-price");
+const totalPrice = $("#total_price");
 const amountArray = {
     product1: { amount: amount1, unit: unit1 },
     product2: { amount: amount2, unit: unit2 },
