@@ -132,7 +132,6 @@
                             name="product_unit_2">
                     </th>
                     <td colspan="3" rowspan="2" id="total-price"></td>
-
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
                 </tr>
                 <tr class="text-center">
@@ -263,9 +262,9 @@
         var pieces = document.getElementById("pieces").value;
         
         var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
-            " Seller_name: " + seller_name + " Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
-            " Trademark: " + trademark + "date: " + date + " Delivery_location: " + delivery_location + " Types" + types +
-            " Pieces: " + pieces + " Total Price: " + total_price;
+            "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
+            "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
+            "Pieces: " + pieces;
 
 
         var ifr = `<img src="${url}" class="img-responsive">`;
