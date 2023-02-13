@@ -19,12 +19,17 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return redirect("login");
+    if (session()->has('userId')) {
+        $role = User::find(session('userId'));
+        if ($role = "admin");
+        return view("welcome", ["role" => $role]);
+    }
+    return view("welcome");
 });
 
 Route::get('dashboard', function () {
     return view('user.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -51,6 +56,5 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 
 Route::get('/test', function () {
-    return
-        str_pad(User::max("id") + 1, 1, 0, STR_PAD_LEFT);
+    p(session()->all());
 });
