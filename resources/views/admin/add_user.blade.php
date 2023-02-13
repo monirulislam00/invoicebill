@@ -1,4 +1,4 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-    <h1>hello</h1>
+    @include("auth.register")
 @endsection
