@@ -14,7 +14,8 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (response, data) {
-                console.log(data, ":", response.responseCode);
+                console.log(data, ":", response);
+                $(".invoice-number").text(response.data.invoice_num);
                 if (response.responseCode == 200) {
                     $.toast({
                         heading: "Success",

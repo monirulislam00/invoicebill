@@ -79,7 +79,6 @@
                     </td>
                     <td class="text-success fw-bolder" colspan="3">
                         <p class="invoice-number">0</p>
-                        <input type="hidden">
                     </td>
                 </tr>
                 <tr>
@@ -217,7 +216,7 @@
             <tr>
                 <th colspan="2">PIECES</th>
                 <th colspan="6" class="text-center" id="pieces_value"></th>
-                <td class="text-success fw-bold" colspan="3">0</td>
+                <td class="text-success fw-bold invoice-number" colspan="3">0</td>
             </tr>
             {{-- last one  --}}
             <tr class="">
@@ -260,7 +259,7 @@
         var delivery_location = document.getElementById("delivery_location").value;
         var types = document.getElementById("types").value;
         var pieces = document.getElementById("pieces").value;
-        
+
         var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
             "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
             "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
@@ -275,4 +274,3 @@
 
     };
 </script>
-
