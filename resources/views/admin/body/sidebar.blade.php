@@ -34,8 +34,8 @@
                         <span>User</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/add/user">Add User</a></li>
-                        <li><a href="">All user</a></li>
+                        <li><a href="{{route('add.user')}}">Add User</a></li>
+                        <li><a href="{{route('all.user')}}">All user</a></li>
                     </ul>
                 </li>
 
