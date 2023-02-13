@@ -9,4 +9,7 @@ class UserController extends Controller
     public function UserDashboard(){
         return view('user/user_dashboard');
     }
+    public function AddUser(){
+        return view('admin/add_user');
+    }
 }
