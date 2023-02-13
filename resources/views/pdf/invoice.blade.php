@@ -189,7 +189,9 @@
                 <td></td>
             </tr>
             <tr style="height: 15px">
-                <td colspan="11" style="height: 60px"></td>
+                <td colspan="11" style="height: 60px">
+                    {{ $invoice }}
+                </td>
             </tr>
         </tbody>
     </table>

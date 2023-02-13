@@ -86,8 +86,11 @@ class InvoiceController extends Controller
     }
     public function watchPdf($id)
     {
-        $pdf = Pdf::loadView('pdf.invoice')->setPaper('A4', 'portrait');
+        $invoice = Invoice::find($id);
+        // p($invoice);
+        $data = compact('invoice');
+        $pdf = Pdf::loadView('pdf.invoice', $data)->setPaper('A4', 'portrait');
         return $pdf->stream();
-        return view("pdf.invoice");
+        // return view("pdf.invoice")->with($data);
     }
 }
