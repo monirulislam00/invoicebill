@@ -131,7 +131,7 @@
                         <input type="text" class="form-control product bg-light" id="product-unit-2" readonly
                             name="product_unit_2">
                     </th>
-                    <td colspan="3" rowspan="2" id="total-price"></td>
+                    <td colspan="3" rowspan="2" id="total_price"></td>
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
                 </tr>
                 <tr class="text-center">
@@ -238,7 +238,7 @@
             </tbody>
         </table>
         <div class="float-end">
-            <a href="/pdf/view/3" class="btn" id="watch-pdf">watch pdf</a>
+            <a href="" class="btn" id="watch-pdf">watch pdf</a>
             <button id="save-invoice" class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black d-none">Save
                 Data</button>
             <button onclick="generate()" type="button" class="btn btn-primary bg-primary">generate qr</button>
@@ -264,7 +264,7 @@
         var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
             "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
             "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
-            "Pieces: " + pieces;
+            "Pieces: " + pieces + " Total Price: " + total_price;
 
 
         var ifr = `<img src="${url}" class="img-responsive">`;

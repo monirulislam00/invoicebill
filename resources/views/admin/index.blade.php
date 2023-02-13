@@ -1,87 +1,62 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-
-        <div class="container-fluid">
-            <table id="example" class="display" style="width:100%">
+<?php 
+$values = DB::table('invoices')->latest()->get();
+?>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+        <div class="container-fluid p-5">
+            <div class="text-center mb-3">
+                <h1 class="fw-bold">All data from user</h1>
+            </div>
+            <hr>
+            <table id="example" class=""table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>SL</th>
+                        <th>Seller name</th>
+                        <th>Buyer name</th>
+                        <th>Supplier</th>
+                        <th>Factory</th>
+                        <th>Trademark</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Pieces</th>
+                        <th>Total price</th>
+                        <th>User id</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php ($i = 1)
+                    @foreach ($values as $value)
+                        <tr>
+                            <td>{{$i++}}</td>
+                            <td>{{$value->seller_name}}</td>
+                            <td>{{$value->buyer_name}}</td>
+                            <td>{{$value->supplier}}</td>
+                            <td>{{$value->factory}}</td>
+                            <td>{{$value->trademark}}</td>
+                            <td>{{$value->date}}</td>
+                            <td>{{$value->location}}</td>
+                            <td>{{$value->type}}</td>
+                            <td>{{$value->pieces}}</td>
+                            <td>{{$value->total}}</td>
+                            <td>{{$value->user_id}}</td>
+                        </tr>
+                    @endforeach
                     
-                    <tr>
-                        <td>Shou Itou</td>
-                        <td>Regional Marketing</td>
-                        <td>Tokyo</td>
-                        <td>20</td>
-                        <td>2011-08-14</td>
-                        <td>$163,000</td>
-                    </tr>
-                    <tr>
-                        <td>Michelle House</td>
-                        <td>Integration Specialist</td>
-                        <td>Sydney</td>
-                        <td>37</td>
-                        <td>2011-06-02</td>
-                        <td>$95,400</td>
-                    </tr>
-                    <tr>
-                        <td>Suki Burks</td>
-                        <td>Developer</td>
-                        <td>London</td>
-                        <td>53</td>
-                        <td>2009-10-22</td>
-                        <td>$114,500</td>
-                    </tr>
-                    <tr>
-                        <td>Prescott Bartlett</td>
-                        <td>Technical Author</td>
-                        <td>London</td>
-                        <td>27</td>
-                        <td>2011-05-07</td>
-                        <td>$145,000</td>
-                    </tr>
-                    <tr>
-                        <td>Gavin Cortez</td>
-                        <td>Team Leader</td>
-                        <td>San Francisco</td>
-                        <td>22</td>
-                        <td>2008-10-26</td>
-                        <td>$235,500</td>
-                    </tr>
-                    <tr>
-                        <td>Martena Mccray</td>
-                        <td>Post-Sales support</td>
-                        <td>Edinburgh</td>
-                        <td>46</td>
-                        <td>2011-03-09</td>
-                        <td>$324,050</td>
-                    </tr>
-                    
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
+                </tbody>    
             </table>
         </div>
     <!-- End Page-content -->
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
-        });
+    $('#example').DataTable();
+});
     </script>
 @endsection
 
