@@ -6,7 +6,8 @@
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="{{asset('upload/admin_image/'.Auth::user()->photo)}}" alt="" class="avatar-md rounded-circle">
+                <img src="{{ asset('upload/admin_image/' . Auth::user()->photo) }}" alt=""
+                    class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1">{{ Auth::user()->name }}</h4>
@@ -33,7 +34,7 @@
                         <span>User</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route("add.user")}}">Add User</a></li>
+                        <li><a href="/add/user">Add User</a></li>
                         <li><a href="">All user</a></li>
                     </ul>
                 </li>

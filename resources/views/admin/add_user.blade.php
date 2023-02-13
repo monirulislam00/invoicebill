@@ -1,6 +1,4 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-
-<h1>adsjfkalkds</h1>
-
+    <h1>hello</h1>
 @endsection
