@@ -34,4 +34,7 @@ class UserController extends Controller
         return redirect()->back();
         
     }
+    public function AllUser(){
+        return view('admin.all_user');
+    }
 }
