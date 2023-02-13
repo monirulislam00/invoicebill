@@ -32,7 +32,7 @@ class InvoiceController extends Controller
                     "data" => $validator->messages(),
                     "responseCode" => 400
                 ],
-                400
+                200
             );
         } else {
             $invoice_number = Invoice::max("id") + 1;
@@ -72,13 +72,15 @@ class InvoiceController extends Controller
                 $invoice->save();
                 return response()->json([
                     "status" => "success",
-                    "data" => $invoice
+                    "data" => $invoice,
+                    "responseCode" => 200
                 ], 200);
             } catch (\Exception $e) {
                 return response()->json([
                     "status" => "fail",
-                    "data" => $e
-                ], 400);
+                    "data" => $e,
+                    "responseCode" => 500
+                ], 200);
             }
         }
     }
