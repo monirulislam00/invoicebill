@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         session()->put("userId", $userId);
         $url = '';
         if ($request->user()->role === 'admin') {
-            $url = 'admin/dashboard';
+            $url = '/admin/dashboard';
         } elseif ($request->user()->role === 'user') {
             $url = '/dashboard';
         }
