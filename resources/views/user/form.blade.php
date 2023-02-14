@@ -157,7 +157,7 @@
                         <input type="text" class="form-control product" id="unit-4" name="unit_4">
                     </th>
                     <th class="text-center p-0 b-0" colspan="2">
-                        <input type="text" class="form-control product bg-light" id="product-unit-4" disabled
+                        <input type="text" class="form-control product bg-light" id="product-unit-4" readonly
                             name="product_unit_4">
                     </th>
                     <td></td>
@@ -188,7 +188,7 @@
                 <th colspan="6" class="text-center" id="supplier_value">0</th>
                 <td colspan="2" rowspan="6" style="min-width: 115px">
                     <div id="qrcode2" class="d-flex justify-content-center qrcode">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=please generate qr code:"
+                        <img src="https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl=please generate qr code:"
                             class="img-responsive">
                     </div>
                 </td>
@@ -260,7 +260,8 @@
         var types = document.getElementById("types").value;
         var pieces = document.getElementById("pieces").value;
 
-        var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Buyer_name: " + buyer_name +
+        var url = "https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl=Buyer_name: " +
+            buyer_name +
             "Seller_name: " + seller_name + "Supplier_name: " + supplier_name + "Factory_name: " + factory_name +
             "Trademark: " + trademark + "date: " + date + "delivery_location: " + delivery_location + " Types" + types +
             "Pieces: " + pieces + " Total Price: " + total_price;

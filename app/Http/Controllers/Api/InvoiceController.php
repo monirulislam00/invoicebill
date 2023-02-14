@@ -49,22 +49,44 @@ class InvoiceController extends Controller
             $invoice->unit_one = $request->unit_1;
             $invoice->sum_one = $request->product_unit_1;
             $invoice->sum_two = $request->product_unit_2;
-            $invoice->sum_three = $request->product_unit_3;
             $invoice->pieces_two = $request->pieces_2;
             $invoice->unit_two = $request->unit_2;
             $invoice->pieces_three = $request->pieces_3;
             $invoice->unit_three = $request->unit_3;
+            $invoice->sum_three = $request->product_unit_3;
+            $invoice->pieces_four = $request->pieces_4;
+            $invoice->unit_four = $request->unit_4;
+            $invoice->sum_four = $request->product_unit_4;
             $invoice->pieces = $request->pieces;
             $invoice->total = $request->totalPrice;
-            $invoice->qr_code = "Buyer name:" . $request->buyer_name .
-                "Seller_name: " . $request->seller_name .
-                "Supplier Name: " . $request->supplier_name .
-                "Factory Name: " . $request->factory_name .
-                "Trademark: " . $request->trademark .
-                "date: " . $request->date .
-                "Delivery Location: " . $request->delivery_location .
-                "Types" . $request->types .
-                "Pieces: " . $request->pieces .
+            /* -------------------- collection all pieces for qr code ------------------- */
+            $qr_code_ps = "";
+            if ($request->pieces_1 != "") {
+                $qr_code_ps .=
+                    "1 No: " . $request->pieces_1 . 'pcs;';
+            }
+            if ($request->pieces_2 != "") {
+                $qr_code_ps .=
+                    "2 No: " . $request->pieces_2 . 'pcs;';
+            }
+            if ($request->pieces_3 != "") {
+                $qr_code_ps .=
+                    "3 No: " . $request->pieces_3 . 'pcs;';
+            }
+            if ($request->pieces_4 != "") {
+                $qr_code_ps .=
+                    "4 No: " . $request->pieces_4 . 'pcs;';
+            }
+            $invoice->qr_code = "Buyer name:" . $request->buyer_name . ";" .
+                "Seller_name: " . $request->seller_name . ";" .
+                "Supplier Name: " . $request->supplier_name . ";" .
+                "Factory Name: " . $request->factory_name . ";" .
+                "Trademark: " . $request->trademark . ";" .
+                "date: " . $request->date . ";" .
+                "Delivery Location: " . $request->delivery_location . ";" .
+                "Types:" . $request->types . ";" .
+                "Pieces: " . $request->pieces . ";" .
+                $qr_code_ps .
                 "total:" . $request->totalPrice;
             $invoice->user_id = session("userId");
             $invoice->invoice_num = str_pad($invoice_number, 3, 0, STR_PAD_LEFT);
@@ -86,8 +108,17 @@ class InvoiceController extends Controller
     }
     public function watchPdf($id)
     {
-        $pdf = Pdf::loadView('pdf.invoice')->setPaper('b4', 'portrait');
-        // return $pdf->stream();
-        return view("pdf.invoice");
+        $invoice = Invoice::find($id);
+        if ($invoice != null) {
+            if (session('userId') === $invoice->user_id) {
+                $data = compact('invoice');
+                $pdf = Pdf::loadView('pdf.invoice', $data)->setPaper('A4', 'portrait');
+                return $pdf->stream();
+            } else {
+                return abort(404);
+            }
+        } else {
+            return abort(404);
+        }
     }
 }
