@@ -32,6 +32,9 @@ return new class extends Migration
             $table->string("unit_three")->nullable();
             $table->string("pieces_three")->nullable();
             $table->string("sum_three")->nullable();
+            $table->string("unit_four")->nullable();
+            $table->string("pieces_four")->nullable();
+            $table->string("sum_four")->nullable();
             $table->string("total", 100);
             $table->string("pieces", 50);
             $table->string("qr_code");
