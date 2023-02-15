@@ -9,30 +9,44 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('store.user') }}" style="width: 50%">
                     @csrf
-                    
+                    @if (session('status'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">{{session('status')}}</div>
+                    @endif
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" autofocus>
+                            @error("name")
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
                             <input type="email" class="form-control" name="email">
+                            @error("email")
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone</label>
                             <input type="text" class="form-control" name="phone">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Select Role (Default as admin) </label>
+                            <label class="form-label">Select Role </label>
                             <select name="role" id="" class="form-control">
                                 <option value="">Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>
                             </select>
+                            @error("role")
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" required autocomplete="new-password">
+                            <input type="password" class="form-control @error("password") is-invalid @enderror" name="password" required autocomplete="new-password">
+                            @error("password")
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Confirm Password</label>

@@ -22,6 +22,7 @@ class UserController extends Controller
             'name' =>'required|max:255',
             'email' =>'required|email|unique:users',
             'password' =>'required|confirmed',
+            'role' =>'required|in:admin,user',
         ]);
         User::insert([
             'name'          => $request->name,
@@ -31,8 +32,7 @@ class UserController extends Controller
             'password'      => Hash::make($request->password),
             'created_at'    => Carbon::now()
         ]);
-        return redirect()->back();
-        
+        return redirect()->back()->with('status', 'Account Created successfully');
     }
     public function AllUser(){
         return view('admin.all_user');
