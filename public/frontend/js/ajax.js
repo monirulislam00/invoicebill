@@ -16,6 +16,7 @@ $(document).ready(function () {
             success: function (response, data) {
                 console.log(data, ":", response);
                 $(".invoice-number").text(response.data.invoice_num);
+                $(".invoice-number-input").val(response.data.invoice_num);
                 if (response.responseCode == 200) {
                     $.toast({
                         heading: "Success",
@@ -49,5 +50,15 @@ $(document).ready(function () {
                 console.log(request);
             },
         });
+    });
+    $("#reload-form").on("click", function () {
+        $("#create-invoice")[0].reset();
+        $("#qrcode1").html(
+            `"<img src="${"https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl=cleared"}" class="img-responsive">"`
+        );
+        $("#qrcode2").html(
+            `"<img src="${"https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl=cleared"}" class="img-responsive">"`
+        );
+        console.log("cleared");
     });
 });

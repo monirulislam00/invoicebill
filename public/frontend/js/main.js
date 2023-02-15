@@ -133,3 +133,28 @@ $(".product").on("keyup", function () {
     );
 });
 // });
+
+productUnit1.val(
+    amountArray.product1.amount.val() * amountArray.product1.unit.val()
+);
+productUnit2.val(
+    amountArray.product2.amount.val() * amountArray.product2.unit.val()
+);
+productUnit3.val(
+    amountArray.product3.amount.val() * amountArray.product3.unit.val()
+);
+productUnit4.val(
+    amountArray.product4.amount.val() * amountArray.product4.unit.val()
+);
+totalPrice.text(
+    parseInt(productUnit1.val()) +
+        parseInt(productUnit2.val()) +
+        parseInt(productUnit3.val()) +
+        parseInt(productUnit4.val())
+);
+$("#totalPriceInput").val(
+    parseInt(productUnit1.val()) +
+        parseInt(productUnit2.val()) +
+        parseInt(productUnit3.val()) +
+        parseInt(productUnit4.val())
+);

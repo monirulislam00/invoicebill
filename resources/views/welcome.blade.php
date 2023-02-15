@@ -395,18 +395,15 @@
         @if (Route::has('login'))
             <div class="hidden px-6 py-4 sm:block">
                 @auth
-                    @if ($role == 'admin')
-                        <a href="{{ url('/admin/dashboard') }}"
-                            class="text-lg text-gray-300 dark:text-white underline">Dashboard</a>
+                    @if (isset($role) && $role == 'admin')
+                        <a href="{{ url('admin/dashboard') }}"
+                            class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
-                        <a href="{{ url('/dashboard') }}" class="text-lg text-gray-300 dark:text-white underline">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}"
+                            class="text-lg text-gray-300 dark:text-white underline">Dashboard</a>
                     @endif
                 @else
                     <a href="{{ route('login') }}" class="text-lg text-gray-300 dark:text-white underline">Log in</a>
-
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-lg text-gray-300 dark:text-white underline">Register</a>
-                    @endif
                 @endauth
             </div>
         @endif

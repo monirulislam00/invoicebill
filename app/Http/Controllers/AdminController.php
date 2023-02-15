@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Invoice;
 
 class AdminController extends Controller
 {
-    public function AdminDashboard(){
-        return view('admin/index');
+    public function AdminDashboard()
+    {
+        $values = Invoice::with('creator')->latest()->get();
+        return view('admin/index', compact('values'));
     }
-    public function AdminLogin(){
+    public function AdminLogin()
+    {
         return view('admin/admin_login');
     }
     public function AdminDestroy(Request $request)
@@ -29,9 +33,10 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $admindata = User::find($id);
-        return view('admin.admin_profile_view',compact('admindata'));
+        return view('admin.admin_profile_view', compact('admindata'));
     }
-    public function AdminProfileStore(Request $request){
+    public function AdminProfileStore(Request $request)
+    {
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->name = $request->name;
@@ -39,34 +44,34 @@ class AdminController extends Controller
         $data->phone = $request->phone;
         $data->address = $request->address;
 
-        if($request->file('photo')){
+        if ($request->file('photo')) {
             $file = $request->file('photo');
-            @unlink(public_path('upload/admin_image'.$data->photo));
-            $filename = date('YmdHis').$file->getClientOriginalName();
-            $file->move(public_path('upload/admin_image'),$filename);
+            @unlink(public_path('upload/admin_image' . $data->photo));
+            $filename = date('YmdHis') . $file->getClientOriginalName();
+            $file->move(public_path('upload/admin_image'), $filename);
             $data['photo'] = $filename;
         }
         $data->save();
 
         return redirect()->back();
     }
-    public function ChangePassword(){
+    public function ChangePassword()
+    {
         return view('admin.change_password');
     }
-    public function UpdatePassword(Request $request){
+    public function UpdatePassword(Request $request)
+    {
         $request->validate([
-            'old_password' =>'required',
-            'new_password' =>'required|confirmed',
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
         ]);
-        if(!Hash::check($request->old_password, Auth::user()->password)){
-            return redirect()->back()->with('error','Old password is incorrect');
-            
+        if (!Hash::check($request->old_password, Auth::user()->password)) {
+            return redirect()->back()->with('error', 'Old password is incorrect');
         }
         User::where('id', Auth::user()->id)->update([
             'password' => Hash::make($request->new_password),
 
         ]);
-        return redirect()->back()->with('status','Password successfully updated');
-        
+        return redirect()->back()->with('status', 'Password successfully updated');
     }
 }

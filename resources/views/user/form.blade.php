@@ -77,8 +77,8 @@
                     <td colspan="6" class="text-center p-0 b-0">
                         <input type="text" class="form-control" name="pieces" id="pieces">
                     </td>
-                    <td class="text-success fw-bolder" colspan="3">
-                        <p class="invoice-number">0</p>
+                    <td class="text-success fw-bolder p-0 b-0" colspan="3">
+                        <input type="text" class="form-control invoice-number-input" name="invoiceNumber">
                     </td>
                 </tr>
                 <tr>
@@ -237,12 +237,13 @@
             </tbody>
         </table>
         <div class="float-end">
-            <a href="" class="btn" id="watch-pdf">watch pdf</a>
+            <a style="background:#27ae60" class="btn d-none text-light" id="watch-pdf">watch pdf</a>
             <button id="save-invoice" class="btn btn-warning text-danger b-4 fw-bold m-3 bg-black d-none">Save
                 Data</button>
-            <button onclick="generate()" type="button" class="btn btn-primary bg-primary">generate qr</button>
+            <button style="background: #2980b9" onclick="generate()" type="button"
+                class="btn btn-primary bg-primary">generate qr</button>
 
-            <button class="btn btn-secondary fw-bold">Refresh Table</button>
+            <button type="button" class="btn bg-dark btn-secondary fw-bold" id="reload-form">Refresh Table</button>
         </div>
     </form>
 </div>
@@ -272,6 +273,8 @@
         document.getElementById("qrcode1").innerHTML = ifr;
         document.getElementById("qrcode2").innerHTML = ifr;
         $("#save-invoice").removeClass("d-none");
-
+        $("#save-invoice").on('click', function() {
+            $("#watch-pdf").removeClass("d-none");
+        })
     };
 </script>

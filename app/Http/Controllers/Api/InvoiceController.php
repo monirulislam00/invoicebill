@@ -24,6 +24,7 @@ class InvoiceController extends Controller
             "types" => "required",
             "pieces" => "required",
             "totalPrice" => "required",
+            "invoiceNumber" => "required",
         ]);
         if ($validator->fails()) {
             return response()->json(
@@ -88,8 +89,9 @@ class InvoiceController extends Controller
                 "Pieces: " . $request->pieces . ";" .
                 $qr_code_ps .
                 "total:" . $request->totalPrice;
+
             $invoice->user_id = session("userId");
-            $invoice->invoice_num = str_pad($invoice_number, 3, 0, STR_PAD_LEFT);
+            $invoice->invoice_num = $request->invoiceNumber . str_pad($invoice_number, 2, 0, STR_PAD_LEFT);
             try {
                 $invoice->save();
                 return response()->json([
