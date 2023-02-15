@@ -397,13 +397,13 @@
                 @auth
                     @if ($role == 'admin')
                         <a href="{{ url('admin/dashboard') }}"
-                            class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                            class="text-lg text-gray-300 dark:text-white underline">Dashboard</a>
                     @else
                         <a href="{{ url('/dashboard') }}"
                             class="text-lg text-gray-300 dark:text-white underline">Dashboard</a>
                     @endif
                 @else
-                    <a href="{{ route('login') }}" class="text-lg text-gray-300 dark:text-white underline">Log in</a>
+                    <a href="{{ route('login') }}" class="text-lg fw-bold dark:text-white text-dark underline">Log in</a>
                 @endauth
 
             </div>
@@ -411,7 +411,7 @@
 
         <div class="max-w-6xl sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <h1 class="text-5xl text-gray-300 dark:text-white">Simrak Enterprise</h1>
+                <h1 class="text-5xl fw-bold text-dark dark:text-white">Simrak Enterprise</h1>
             </div>
         </div>
     </div>
