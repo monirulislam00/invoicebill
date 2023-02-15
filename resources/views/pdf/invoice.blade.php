@@ -77,7 +77,7 @@
             </tr>
             <tr style="height: 26px">
                 <td colspan="2">PIECES</td>
-                <td colspan="6">8000</td>
+                <td colspan="6">{{$invoice->pieces}}</td>
                 <td colspan="3">{{ $invoice->invoice_num }}</td>
             </tr>
             <tr style="height: 26px">
@@ -182,7 +182,7 @@
             </tr>
             <tr style="height: 26px">
                 <td colspan="2">PIECES</td>
-                <td colspan="6">{{ $invoice->pieces }}</td>
+                <td colspan="6">{{$invoice->pieces}}</td>
                 <td colspan="3">{{ $invoice->invoice_num }}</td>
             </tr>
             <tr style="height: 21px">
