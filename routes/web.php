@@ -17,6 +17,7 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -24,10 +25,11 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     if (session()->has('userId')) {
         $role = User::find(session('userId'));
-        if ($role = "admin");
-        return view("welcome", ["role" => $role]);
+        return view("welcome", ["role" => $role->role]);
+    } else {
+
+        return view("welcome");
     }
-    return view("welcome");
 });
 
 Route::get('dashboard', function () {
