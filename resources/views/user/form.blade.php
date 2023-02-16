@@ -1,7 +1,7 @@
 <div class="table-responsive ">
     <form action="/api/create-invoice" method="post" id="create-invoice">
         @csrf
-        <table class="border-collapse table-fixed border border-slate-400 w-full border-1">
+        <table class="border-collapse lg:table-fixed md:table-auto border border-slate-400 w-full border-1">
             <thead>
                 <tr class="border border-slate-300 text-center">
                     <th colspan="11" class="border border-slate-300">

@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/jquery.toast.min.css') }}">
     {{-- custom css  --}}
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ url('build/assets/app-e88a1d19.css') }}">
+    <script src="{{ url('build/assets/app-0abc844d.js') }}"></script>
+
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 </head>
 
