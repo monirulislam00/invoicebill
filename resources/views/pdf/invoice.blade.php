@@ -51,7 +51,7 @@
                 <td colspan="3" rowspan="6">
                     <div style="display:flex;justify-content:center">
                         <img
-                            src="https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl={{ $invoice->qr_code }}">
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $invoice->qr_code }}">
                     </div>
                 </td>
             </tr>
@@ -156,7 +156,7 @@
                 <td colspan="3" rowspan="6" style="min-width:150px">
                     <div style="">
                         <img
-                            src="https://chart.googleapis.com/chart?choe=ISO-8859-1&&chld=L|0&cht=qr&chs=150x150&chl={{ $invoice->qr_code }}">
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $invoice->qr_code }}">
                     </div>
                 </td>
             </tr>

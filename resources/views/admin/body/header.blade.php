@@ -7,7 +7,7 @@
                     <span class="logo-sm">
                         {{-- <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="22"> --}}
                     </span>
-                    <h4 class="pt-4 text-white">Simrak Enterprise</h4>
+                    <h4 class="pt-2 text-white">Simrak Enterprise</h4>
                 </a>
             </div>
 

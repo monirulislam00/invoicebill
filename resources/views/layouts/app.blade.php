@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/jquery.toast.min.css') }}">
     {{-- custom css  --}}
     <!-- Scripts -->
+
     <link rel="stylesheet" href="{{ url('build/assets/app-e88a1d19.css') }}">
     <script src="{{ url('build/assets/app-0abc844d.js') }}"></script>
 
